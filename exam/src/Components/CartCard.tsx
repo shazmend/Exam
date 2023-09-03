@@ -49,7 +49,7 @@ function CartCard(props:IproductCard) {
         });
       }, []);
     
-      return (
+      return ( 
         <div>
           <div className=" flex border drop-shadow-lg rounded-xl w-60 h-96 bg-gray-100  flex-col justify-start items-center cursor-pointer hover:bg-gray-200">
             <img className=" px-5 py-1 w-full h-48" src={props.src} />
