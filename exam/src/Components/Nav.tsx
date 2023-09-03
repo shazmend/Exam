@@ -77,6 +77,11 @@ function Nav() {
               {" "}
               <li className="hover:text-yellow-400 cursor-pointer">Home</li>
             </a>
+
+            <a href="/">
+              {" "}
+              <li className="hover:text-yellow-400 cursor-pointer">Log out</li>
+            </a>
           </div>
         </ul>
       )}
