@@ -10,6 +10,22 @@ interface IproductCard {
   }
 
 function CartCard(props:IproductCard) {
+    type IcartApi = {
+        products:[{
+            quantity:string;
+        }]
+       
+      };
+
+    const [cartApi, setCartApi] = React.useState<IcartApi[]>([]);
+
+    // get Cart api
+  React.useEffect(() => {
+    axios.get("https://fakestoreapi.com/carts").then((response) => {
+      setCartApi(response.data);
+    });
+  }, []);
+
     type IusersApi = {
         id: string;
         title: string;
@@ -43,7 +59,19 @@ function CartCard(props:IproductCard) {
       };
 
       const updateQuantity = () =>{
-        
+        usersApi.map((item) => {
+            if (props.title == item.title) {
+              localStorage.setItem("ProductId", item.id);
+            }
+          });
+
+        axios
+        .put(`https://fakestoreapi.com/carts/${ProductId}`, {
+            quantity: {quantity}   
+        })
+        .then((response) => {
+          setCartApi(response.data);
+        });   
       }
     
       //get products to defind the product id
@@ -88,7 +116,7 @@ function CartCard(props:IproductCard) {
             </button>
              <button
               className="absolute right-10 bottom-4 bg-yellow-400 px-2 py-1 rounded-xl hover:bg-yellow-500"
-            //   onClick={updateQuantity}
+              onClick={updateQuantity}
             >
              update
             </button>
