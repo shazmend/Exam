@@ -41,6 +41,10 @@ function CartCard(props:IproductCard) {
         });
     
       };
+
+      const updateQuantity = () =>{
+        
+      }
     
       //get products to defind the product id
       React.useEffect(() => {
@@ -75,13 +79,21 @@ function CartCard(props:IproductCard) {
             
             </div>
             
-
-            <button
-              className="absolute bottom-4 bg-yellow-400 px-5 py-1 rounded-xl hover:bg-yellow-500"
+        <div className='flex'>
+        <button
+              className="absolute left-10 bottom-4 bg-yellow-400 px-2 py-1 rounded-xl hover:bg-yellow-500"
               onClick={deleteProduct}
             >
-              Delete product
+              Delete
             </button>
+             <button
+              className="absolute right-10 bottom-4 bg-yellow-400 px-2 py-1 rounded-xl hover:bg-yellow-500"
+            //   onClick={updateQuantity}
+            >
+             update
+            </button>
+        </div>
+           
           </div>
         </div>
       );
