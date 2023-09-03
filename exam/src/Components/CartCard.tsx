@@ -48,6 +48,8 @@ function CartCard(props:IproductCard) {
           setUsersApi(response.data);
         });
       }, []);
+
+      const[quantity , setQuantity] = React.useState(1)
     
       return ( 
         <div>
@@ -60,6 +62,20 @@ function CartCard(props:IproductCard) {
             <p className="text-sm">{props.category}</p>
             <p className="text-lg text-green-600">${props.price}</p>
             {/* <p className=" flex flex-col flex-wrap font-semibold text-xs">{props.description}</p> */}
+            <div className='flex gap-3'>
+            <p>quantity</p>
+            <div className='flex gap-3'>
+            <button className=' bg-gray-100'
+            onClick={()=>{setQuantity(quantity+1)}}
+            >+</button>
+            <p>{quantity}</p>
+            <button className=' bg-gray-100'
+            onClick={()=>{setQuantity(quantity-1)}}>-</button>
+            </div>
+            
+            </div>
+            
+
             <button
               className="absolute bottom-4 bg-yellow-400 px-5 py-1 rounded-xl hover:bg-yellow-500"
               onClick={deleteProduct}
